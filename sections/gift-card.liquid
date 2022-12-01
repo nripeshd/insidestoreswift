@@ -54,7 +54,7 @@
           <div class="corner top-right"></div>
           <div class="corner bottom-left"></div>
           <div id="gift-card">
-            <img
+            <img data-swift-lazy=1 loading=lazy
               src="{{ 'gift-card/card.jpg' | shopify_asset_url }}"
               alt="Gift card illustration"
             >
@@ -107,7 +107,7 @@
         style="text-align: center;"
         href="{{ gift_card.pass_url }}"
       >
-        <img
+        <img data-swift-lazy=1 loading=lazy
           style="display: inline-block;"
           src="{{ 'gift-card/add-to-apple-wallet.svg' | shopify_asset_url }}"
           width="120"

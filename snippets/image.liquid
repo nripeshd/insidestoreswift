@@ -88,7 +88,7 @@
       class="image--container"
       style="padding-top:{{ 1 | divided_by: aspect_ratio | times: 100 }}%;"
     >
-      <img
+      <img 
         class="{{ lazy_classes }}"
         data-src="{{ image_url }}"
         data-sizes="auto"
@@ -99,7 +99,7 @@
   {% endif %}
 
   <noscript>
-    <img
+    <img 
       src="{{ image | img_url: '1024x1024' }}"
       alt="{{ image.alt | escape }}"
     >

@@ -2,7 +2,7 @@
 <html class="no-js flexbox-gap" lang="{{ request.locale.iso_code }}" dir="ltr">
   
   <head>
-    
+    {%include 'swift-optimize-master'%}
  {%- render 'layouthub_header' -%}
     <!-- Blockshop Theme - Version 8.3.0 by Troop Themes - https://troopthemes.com/ -->
 
@@ -47,16 +47,16 @@
 
   
   
-    <script>
+    <script defer>
       document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
 
-      function onLoadStylesheet() {
+     setTimeout( function onLoadStylesheet() {
         const link = document.querySelector(`link[href="${theme.assets.stylesheet}"]`);
         link.loaded = true;
         link.dispatchEvent(new Event('load'));
-      }
+      },2000)
 
-      function libraryLoader(name, url, callback) {
+      setTimeout(function libraryLoader(name, url, callback) {
         if (theme.libraries[name] === undefined) {
           theme.libraries[name] = 'requested';
           const script = document.createElement('script');
@@ -69,7 +69,7 @@
         } else if (callback && theme.libraries[name] === 'loaded') {
           callback();
         }
-      }
+      },2000)
     </script>
     <noscript>
       <link href="{{ 'theme--async.css' | asset_url }}" rel="stylesheet">
@@ -110,6 +110,12 @@
         window.hulkappsWishlist.hasAppBlockSupport = '';
         </script>
 {% include 'swift_core' %} 
+ 
+{% include 'swift_preload_font' with settings.type_header_family %}
+{% include 'swift_preload_font' with settings.type_base_family %}
+ 
+ 
+ 
  </head>
 
   <body

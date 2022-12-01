@@ -187,7 +187,7 @@
           <div class="swiper-wrapper">
             {%- for image in product.images -%}
 		          <div class="items-img swiper-slide zoom__image" data-variant_id="{{image.variants | map:'id' | join: ','}}">
-		                      <img src="{{ image | img_url: "master"}}" data-w="{{image.width}}" data-h="{{image.height}}" data-bigimg="{{ image | img_url: "master"}}" alt="{{ image.alt}}">
+		                      <img data-swift-lazy=1 loading=lazy src="{{ image | img_url: "master"}}" data-w="{{image.width}}" data-h="{{image.height}}" data-bigimg="{{ image | img_url: "master"}}" alt="{{ image.alt}}">
 		                  </div>
 		        {%- endfor -%}</div>
           <div class="lh-slide-lg-nav">
@@ -215,7 +215,7 @@
       <div class="swiper-wrapper">
         {%- for image in product.images -%}
 				   <div class="items-img swiper-slide" data-variant_id="{{image.variants | map:'id' | join: ','}}">
-		                <img src="{{ image | img_url: '100x100' , crop: 'center'}}"   alt="{{ image.alt}}">
+		                <img data-swift-lazy=1 loading=lazy src="{{ image | img_url: '100x100' , crop: 'center'}}"   alt="{{ image.alt}}">
 		            </div>
 				{%- endfor -%}</div>
 
@@ -333,7 +333,7 @@ Please click <a href="https://www.insidestores.com/pages/international-shipping"
 														{%- endif -%}
 														<li data-option-index="{{ option_index }}" data-lh-tooltip="{{option_value | escape}}" class="lh-swatch-select lh-item-image lh-tooltip_top lh-swatch-image {% if option_value == variant_slected[index] %} active{% endif %}" data-value="{{option_value | escape}}">
 															 
-																<span><img src="{{ variant | img_url: "120x120", crop: 'center' }}" alt="{{option_value}}">
+																<span><img data-swift-lazy=1 loading=lazy src="{{ variant | img_url: "120x120", crop: 'center' }}" alt="{{option_value}}">
 																</span>
 															 
 														</li>

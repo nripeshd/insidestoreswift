@@ -187,7 +187,7 @@
           <div class="swiper-wrapper">
             {%- for image in product.images -%}
 		          <div class="items-img swiper-slide zoom__image" data-variant_id="{{image.variants | map:'id' | join: ','}}">
-		                      <img src="{{ image | img_url: "master"}}" data-w="{{image.width}}" data-h="{{image.height}}" data-bigimg="{{ image | img_url: "master"}}" alt="{{ image.alt}}">
+		                      <img data-swift-lazy=1 loading=lazy src="{{ image | img_url: "master"}}" data-w="{{image.width}}" data-h="{{image.height}}" data-bigimg="{{ image | img_url: "master"}}" alt="{{ image.alt}}">
 		                  </div>
 		        {%- endfor -%}</div>
           <div class="lh-slide-lg-nav">
@@ -215,7 +215,7 @@
       <div class="swiper-wrapper">
         {%- for image in product.images -%}
 				   <div class="items-img swiper-slide" data-variant_id="{{image.variants | map:'id' | join: ','}}">
-		                <img src="{{ image | img_url: '100x100' , crop: 'center'}}"   alt="{{ image.alt}}">
+		                <img data-swift-lazy=1 loading=lazy src="{{ image | img_url: '100x100' , crop: 'center'}}"   alt="{{ image.alt}}">
 		            </div>
 				{%- endfor -%}</div>
 
@@ -226,7 +226,7 @@
    </include><div class="lh-block-custom lh-custom-html"  data-lhi="c_html_image" data-lh-lang data-lh-live-editor><div style="text-align: left;">
 <strong>DELIVERY:</strong>
 <br>All stock items ship within 24-48 hours.<br>
-<br><strong> SWATCHES CAN ONLY BE SHIP WITHIN THE USA. 
+<br><strong> SWATCHES CAN ONLY BE SHIP IN  THE USA. 
  WE CAN NOT SHIP SWATCHES INTERNATIONALLY.</strong><br><br><div style="text-align: left;"><strong style="font-size: calc(var(--lh-font-size) * 0.875);">NEED TO CHECK STOCK?</strong></div>
 
 <a href="mailto:sales@insidestores.com">Email us</a>, use our live chat feature or call us at 800-497-8042 to confirm availability.<br><br>
@@ -252,7 +252,10 @@ Standard        $100
 <br><br>
 <strong>INTERNATIONAL SHIPPING</strong>
 <br>
-Please click <a href="https://www.insidestores.com/pages/international-shipping"> here for international shipping.</a><br><br></div>
+Please click <a href="https://www.insidestores.com/pages/international-shipping"> here for international shipping.</a><br><br>
+<strong>CANADIAN ORDERS:</strong><br>Please <a href="https://insidestores.ca"> visit our Canadian store.</a>
+<br>
+<br></div>
 					</div>
 					<div class="lh-summary">
 						<div class="lh-content-summary" data-hidden="{% assign variant_slected = product.selected_or_first_available_variant %}
@@ -332,7 +335,7 @@ Please click <a href="https://www.insidestores.com/pages/international-shipping"
 														{%- endif -%}
 														<li data-option-index="{{ option_index }}" data-lh-tooltip="{{option_value | escape}}" class="lh-swatch-select lh-item-image lh-tooltip_top lh-swatch-image {% if option_value == variant_slected[index] %} active{% endif %}" data-value="{{option_value | escape}}">
 															 
-																<span><img src="{{ variant | img_url: "120x120", crop: 'center' }}" alt="{{option_value}}">
+																<span><img data-swift-lazy=1 loading=lazy src="{{ variant | img_url: "120x120", crop: 'center' }}" alt="{{option_value}}">
 																</span>
 															 
 														</li>
