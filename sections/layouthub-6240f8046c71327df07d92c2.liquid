@@ -1,0 +1,210 @@
+{% comment %}
+ LayoutHub (https://layouthub.com)
+ You SHOULD NOT modify source code in this page because
+ It is automatically generated from LayoutHub
+ {% endcomment %} 
+ 
+ <div class="lh-sections-wrapper" data-id="6240f8046c71327df07d92c2" data-type="blog">
+<section id="" data-section-id="vQZ3cKjpH8" data-section="blog-list" data-dev="le-vi" data-lh-page-id="397" data-lh-page-name="Blog List - Cowi" data-layouthub="section">  
+ {%- assign tpl =  template | replace: '.', ' ' | truncatewords: 1, '' | handle  -%}
+        {% assign string_cate = blog.title | append: "|" | append: blog.handle %}
+        {%- if tpl != 'blog' -%}
+           
+            {% assign handle_blog = 'news' %}
+           
+          {% assign blog = blogs[handle_blog] %}
+        {%- endif -%}
+        {% assign list_cate = string_cate | split: "," %}<style>
+                nav.breadcrumbs {
+                    width: 90% !important;
+                    margin: auto;
+                }
+                  .breadcrumbs {
+                    margin: 0 0 2em;
+                  }
+                
+                  .breadcrumbs__list {
+                    list-style-type: none;
+                    margin: 0;
+                    padding: 0;
+                  }
+                
+                  .breadcrumbs__item {
+                    display: inline-block;
+                  }
+                 
+                
+                  .breadcrumbs__item:not(:last-child):after {
+                        content: "/";
+                        color: #aaa;
+                        margin: 0 1em;
+                        position: relative;
+                        top: 1px;
+                  }
+                
+                  .breadcrumbs__link {
+                    text-decoration: underline;
+                  }
+                
+                  .breadcrumbs__link[aria-current="page"] {
+                    color: inherit;
+                    font-weight: normal;
+                    text-decoration: none;
+                  }
+                
+                  .breadcrumbs__link[aria-current="page"]:hover,
+                  .breadcrumbs__link[aria-current="page"]:focus {
+                    text-decoration: underline;
+                  }
+                </style>
+                
+                {%- unless template == 'index' or template == 'cart' or template == 'list-collections' or template == '404' -%}
+                {%- assign t = template | split: '.' | first -%}
+                
+                <nav class="breadcrumbs" role="navigation" aria-label="breadcrumbs">
+                  <ol class="breadcrumbs__list">
+                    <li class="breadcrumbs__item">
+                      <a class="breadcrumbs__link" href="/">Home</a>
+                    </li>
+                    {%- case t -%}
+                      {%- when 'page' -%}
+                        <li class="breadcrumbs__item">
+                          <a class="breadcrumbs__link" href="{{ page.url }}" aria-current="page">{{ page.title }}</a>
+                        </li>
+                      {%- when 'product' -%}
+                        {%- if collection.url -%}
+                          <li class="breadcrumbs__item">
+                            {{ collection.title | link_to: collection.url }}
+                          </li>
+                        {%- endif -%}
+                        <li class="breadcrumbs__item">
+                          <a class="breadcrumbs__link" href="{{ product.url }}" aria-current="page">{{ product.title }}</a>
+                        </li>
+                      {%- when 'collection' and collection.handle -%}
+                        {%- if current_tags -%}
+                          <li class="breadcrumbs__item">
+                            {{ collection.title | link_to: collection.url }}
+                          </li>
+                          <li class="breadcrumbs__item">
+                            {%- capture tag_url -%}{{ collection.url }}/{{ current_tags | join: "+"}}{%- endcapture -%}
+                            <a class="breadcrumbs__link" href="{{ tag_url }}" aria-current="page">{{ current_tags | join: " + "}}</a>
+                          </li>
+                        {%- else -%}
+                          <li class="breadcrumbs__item">
+                            <a class="breadcrumbs__link" href="{{ collection.url }}" aria-current="page">{{ collection.title }}</a>
+                          </li>
+                        {%- endif -%}
+                      {%- when 'blog' -%}
+                        {%- if current_tags -%}
+                          <li class="breadcrumbs__item">
+                            {{ blog.title | link_to: blog.url }}
+                          </li>
+                          <li class="breadcrumbs__item">
+                            {%- capture tag_url -%}{{blog.url}}/tagged/{{ current_tags | join: "+" }}{%- endcapture -%}
+                            <a class="breadcrumbs__link" href="{{ tag_url }}" aria-current="page">{{ current_tags | join: " + " }}</a>
+                          </li>
+                        {%- else -%}
+                          <li class="breadcrumbs__item">
+                            <a class="breadcrumbs__link" href="{{ blog.url }}" aria-current="page">{{ blog.title }}</a>
+                          </li>
+                        {%- endif -%}
+                      {%- when 'article' -%}
+                        <li class="breadcrumbs__item">
+                          {{ blog.title | link_to: blog.url }}
+                        </li>
+                        <li class="breadcrumbs__item">
+                          <a class="breadcrumbs__link" href="{{ article.url }}" aria-current="page">{{ article.title }}</a>
+                        </li>
+                      {%- else -%}
+                        <li class="breadcrumbs__item">
+                          <a class="breadcrumbs__link" href="{{ request.path }}" aria-current="page">{{ page_title }}</a>
+                        </li>
+                    {%- endcase -%}
+                  </ol>
+                </nav>
+                {%- endunless -%}<div class="lh-wrapper lh-blog-section">
+    <div class="container">
+        <div class="lh-title-wrapper">
+            <h2 class="lh-title"  data-lhi="title">The Design Life</h2>
+          </div>
+    </div>
+  <include data-live-title_full data-name="content" data-id="1">  
+ <div class="lh-container">
+  <div class="lh-row">
+    <div class="lh-col-md-12">
+      <div class="lh-article-grid full_text" data-hub-attr-state="class%3D%22lh-article-grid%20%257B%253A%257Bsection.settings.title_full%257D%253A%257D%22"  data-hub-attr-title_full >
+        {%- if blog != blank -%}
+      {%-paginate blog.articles by 4-%}
+      <div class="lh-item-blog">
+      <div class="lh-row">
+        {%- for item in blog.articles -%}
+        <div class="lh-item-article">
+          <div class="lh-article-image">
+            <a href="{{item.url}}">
+               
+                  <img src="{{item.image | img_url : 'master'}}" alt="{{item.title}}">
+               
+            </a>
+          </div>
+          <div class="lh-article-info">
+          <h5 class="lh-article-title">
+              <a href="{{item.url}}">{{item.title}}</a>
+          </h5>
+          <div class="lh-article-head">
+            By <span class="lh-article-author">{{ item.author }}</span>
+            <span class="lh-elippse"></span>
+            <span class="lh-article-date">{{item.published_at | date: "%d/%m/%y" }}</span>
+          </div>
+          <div class="lh-article-excerpt">
+            {% if item.excerpt.size > 0 %}
+            <p>
+              {{ item.excerpt | strip_html | truncate : 150 }}
+            </p>
+            {% else %}
+            <p>
+              {{ item.content | strip_html | truncate : 150 }}
+            </p>
+            {% endif %}
+          </div>
+          <a href="{{item.url}}" class="lh-readmore-btn">Read More</a>
+        </div>
+        </div>
+        {%- endfor -%}
+      </div>
+    </div>
+        <div class="lh-page-numbers">
+          <ul class="lh-pagination_pages">
+            {%- for part in paginate.parts -%}
+              {%- if part.is_link -%}
+              <li class="lh-item-pagination">
+                <a href="{{ part.url }}" class="lh-numbers">{{ part.title }}</a>
+              </li>
+              {%- else -%}
+                {%- if part.title == paginate.current_page -%}
+                  <li class="lh-item-pagination"><span class="lh-numbers current">{{ part.title }}</span></li>
+                {%- else -%}
+                  <li class="lh-item-pagination"><span class="lh-numbers">{{ part.title }}</span></li>
+                {%- endif -%}
+              {%- endif -%}
+            {%- endfor -%}
+          </ul>
+        </div>
+      {%- endpaginate -%}
+    {%- else -%}
+      <div class="lh-message" >
+        <p>Empty content. Please select category to preview</p>
+        <div class="lh-wrap-btn" >
+          <a href="javascript:void(0)" >Select category</a>
+        </div>
+      </div>
+    {%- endif -%}</div>
+    </div>
+  </div>
+</div>
+
+   </include></div>
+  </section>
+</div>
+ {%schema%} 
+{"locales":{"en":{}},"name":"Custom Blog Page"}
+ {%endschema%}

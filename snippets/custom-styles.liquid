@@ -1,0 +1,61 @@
+{% comment %}
+  Here's an example of a customization
+  You can paste this at the bottom of the page to see how it works
+
+  /* Author - Date - Customization */
+  /* E.g. Troop Themes - 12th November .... - Changed paragraph colors */
+  @media only screen and (max-width: 767px) { /* mobile */
+    body {
+      color: blue;
+    }
+  }
+
+  @media only screen and (min-width: 768px) { /* desktop */
+    body {
+      color: green;
+    }
+  }
+
+  /* Add your theme customizations below */
+{% endcomment %}
+
+/* Troop - Product Page tweak */
+ @media only screen and (min-width: 768px) {
+   .product-page--main-content {
+     -ms-grid-columns: minmax(60%, 60%) minmax(40%, 40%);
+     grid-template-columns: minmax(60%, 60%) minmax(40%, 40%);
+   }
+   .product-page--center {
+     -ms-grid-column: 1 !important;
+     grid-column: 1 !important;
+   }
+   .product-page--thumbs[data-position="image-column"] {
+     display: block !important;
+   }
+   .product-page--thumbs[data-position="cart-form-column"] {
+     display: none !important;
+   }
+   .product-page--left-column {
+     -ms-grid-row: 1 !important;
+     grid-row: 1 !important;
+     -ms-grid-column: 2 !important;
+     grid-column: 2 !important;
+ -webkit-box-ordinal-group: 2;
+     -ms-flex-order: 1;
+     order: 1;
+   }
+    .product-page--right-column{
+     -ms-grid-row: 2 !important;
+     grid-row: 2 !important;
+     -ms-grid-column: 2 !important;
+     grid-column: 2 !important;
+ -webkit-box-ordinal-group: 2;
+     -ms-flex-order: 2;
+     order: 2;
+   }
+   .product-media--wrapper {
+     -webkit-box-ordinal-group: 3;
+     -ms-flex-order: 2;
+     order: 2;
+   }
+ }
